@@ -1,0 +1,78 @@
+<mxfile host="65bd71144e">
+    <diagram id="8TM8hN27XCtuvKvf9UVz" name="Страница 1">
+        <mxGraphModel dx="1106" dy="987" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="6" value="Olympiad" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+                    <mxGeometry x="190" y="40" width="210" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="- name: string&#10;- discription: string&#10;- countries: vector&lt;Country&gt;&#10;- competitions: vector&lt;Competition&gt;&#10;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="6" vertex="1">
+                    <mxGeometry y="26" width="210" height="74" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Country" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+                    <mxGeometry x="10" y="250" width="170" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="- name: string&#10;- atletes: vector&lt;Athlete *&gt;&#10;- gold_medal: int&#10;- silver_medal: int&#10;- bronze_medal: int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="8">
+                    <mxGeometry y="26" width="170" height="84" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="Competition" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+                    <mxGeometry x="470" y="230" width="180" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="- name: string&#10;- description: string&#10;- athletes: set&lt;Athlete&gt;&#10;- type_of_result: int&#10;- first_place_is_smaller: bool&#10;- finished: bool&#10;- countries: vector&lt;Country&gt; *" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="12">
+                    <mxGeometry y="26" width="180" height="114" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="Athlete" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+                    <mxGeometry x="230" y="390" width="140" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="- name: string&#10;- surname: string&#10;- country: Country *&#10;- age: int&#10;- height: int&#10;- weight: int&#10;- result: float&#10;- type_of_result: int&#10;- gender: bool&#10;- disqualification: bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="16">
+                    <mxGeometry y="26" width="140" height="154" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="Relation" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;entryX=-0.006;entryY=0.852;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="8" target="7">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="90" y="700" as="sourcePoint"/>
+                        <mxPoint x="250" y="700" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="21" value="0..n" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;" connectable="0" vertex="1" parent="20">
+                    <mxGeometry x="-1" relative="1" as="geometry">
+                        <mxPoint x="8" y="-40" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="22" value="1" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" connectable="0" vertex="1" parent="20">
+                    <mxGeometry x="1" relative="1" as="geometry">
+                        <mxPoint x="-18" y="-29" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="23" value="Use" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=-0.018;exitY=0.795;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="13" target="16">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="120" y="700" as="sourcePoint"/>
+                        <mxPoint x="280" y="700" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="24" value="Relation" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;entryX=1.012;entryY=0.884;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="12" target="7">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="540" y="160" as="sourcePoint"/>
+                        <mxPoint x="720" y="500" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="25" value="0..n" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;" connectable="0" vertex="1" parent="24">
+                    <mxGeometry x="-1" relative="1" as="geometry">
+                        <mxPoint x="-25" y="-40" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="26" value="1" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" connectable="0" vertex="1" parent="24">
+                    <mxGeometry x="1" relative="1" as="geometry">
+                        <mxPoint x="27" y="-31" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="28" value="" style="endArrow=block;startArrow=block;endFill=1;startFill=1;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="9" target="16">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="80" y="520" as="sourcePoint"/>
+                        <mxPoint x="240" y="520" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
