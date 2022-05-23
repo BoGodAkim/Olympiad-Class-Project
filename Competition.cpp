@@ -137,7 +137,6 @@ void Competition::FinishCompetition()
 {
     this->finished = true;
     athletes.back()->SetCompetitionForSort(this);
-    cout << this << endl;
     athletes.sort(compare_athletes);
     if (this->first_place_is_smaller)
     {

@@ -145,10 +145,9 @@ int main()
 
     Olympiad olympiad2;
     olympiad2.LoadFromFile();
+    string filter = "Be";
+    olympiad2.PrintCountries(filter);
     olympiad2.PrintCountriesLeaderboard();
-
     olympiad2.PrintListOfAthletes();
     olympiad2.PrintListOfCompetitions();
-
-    
 }
