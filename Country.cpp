@@ -88,7 +88,7 @@ void Country::PrintCountry()
         cout << (*it)->GetNameSurname() << endl;
     }
     cout << endl;
-    //this->PrintAthletes();
+    // this->PrintAthletes();
 }
 
 bool Country::operator<(const Country &country)

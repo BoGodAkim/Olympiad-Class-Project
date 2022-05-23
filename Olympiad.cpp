@@ -274,6 +274,7 @@ void Olympiad::LoadFromFile(const string fold_name /*= "data/"*/)
         istringstream iss(line_athlete);
         id = athlete.LoadFromFile(iss,&countryID);
         this->athletes.push_back(athlete);
+        this->athletes.back().GetCountry()->AddAthlete(&this->athletes.back());
         athleteID[id] = &this->athletes.back();
     }
 
