@@ -40,8 +40,8 @@ public:
     list<Athlete>::iterator FindAthlete(const string *name_surname);
     Olympiad();
     Olympiad(const string *name, const string *description);
-    void SaveToFile(const string fileName = "data/olympiad.txt");
-    void LoadFromFile(const string fileName = "data/olympiad.txt");
+    void SaveToFile(const string foldName = "data/");
+    void LoadFromFile(const string foldName = "data/");
 };
 
 class Country

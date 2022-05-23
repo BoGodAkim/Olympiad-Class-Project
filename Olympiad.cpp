@@ -180,7 +180,7 @@ list<Athlete>::iterator Olympiad::FindAthlete(const string *name_surname)
     return this->athletes.end();
 }
 
-void Olympiad::SaveToFile(const string file_name /*= "data/olympiad.txt"*/)
+void Olympiad::SaveToFile(const string fold_name /*= "data/"*/)
 {
     map<Country *, int> countryID;
     map<Competition *, int> competitionID;
@@ -204,12 +204,12 @@ void Olympiad::SaveToFile(const string file_name /*= "data/olympiad.txt"*/)
         athleteID[&(*it)] = id;
         id++;
     }
-    ofstream file(file_name);
+    ofstream file(fold_name + "Olympiad.txt");
     file << name << endl
          << description << endl;
     file.close();
 
-    ofstream country_file("data/Country.csv");
+    ofstream country_file(fold_name + "Country.csv");
     country_file << "ID,Name,GoldMedals,SilverMedals,BronzeMedals" << endl;
     for (auto it = this->countries.begin(); it != this->countries.end(); it++)
     {
@@ -217,7 +217,7 @@ void Olympiad::SaveToFile(const string file_name /*= "data/olympiad.txt"*/)
     }
     country_file.close();
 
-    ofstream competition_file("data/Competition.csv");
+    ofstream competition_file(fold_name + "Competition.csv");
     competition_file << "ID,Name,Description,TypeOfResult,FirstPlaceIsSmaller,Finished" << endl;
     for (auto it = this->competitions.begin(); it != this->competitions.end(); it++)
     {
@@ -225,9 +225,9 @@ void Olympiad::SaveToFile(const string file_name /*= "data/olympiad.txt"*/)
     }
     competition_file.close();
 
-    ofstream athlete_file("data/Athlete.csv");
+    ofstream athlete_file(fold_name + "Athlete.csv");
     athlete_file << "ID,Name,Surname,CountryID,Age,Height,Weight,Gender,GoldMedals,SilverMedals,BronzeMedals" << endl;
-    ofstream result_file("data/Result.csv");
+    ofstream result_file(fold_name + "Result.csv");
     result_file << "ID, AthleteID,CompetitionID,Result" << endl;
     int resultID = 0;
     for (auto it = this->athletes.begin(); it != this->athletes.end(); it++)
@@ -237,14 +237,14 @@ void Olympiad::SaveToFile(const string file_name /*= "data/olympiad.txt"*/)
     athlete_file.close();
 }
 
-void Olympiad::LoadFromFile(const string file_name /*= "data/olympiad.txt"*/)
+void Olympiad::LoadFromFile(const string fold_name /*= "data/"*/)
 {
     map<int, Country *> countryID;
     map<int, Competition *> competitionID;
     map<int, Athlete *> athleteID;
     int id;
 
-    ifstream file(file_name);
+    ifstream file(fold_name+"Olympiad.txt");
     string line;
     getline(file, line);
     this->name = line;
@@ -252,7 +252,7 @@ void Olympiad::LoadFromFile(const string file_name /*= "data/olympiad.txt"*/)
     this->description = line;
     file.close();
 
-    ifstream country_file("data/Country.csv");
+    ifstream country_file(fold_name + "Country.csv");
     string line_country;
     getline(country_file, line_country);
     while (getline(country_file, line_country))
@@ -265,7 +265,7 @@ void Olympiad::LoadFromFile(const string file_name /*= "data/olympiad.txt"*/)
     }
     country_file.close();
 
-    ifstream athlete_file("data/Athlete.csv");
+    ifstream athlete_file(fold_name + "Athlete.csv");
     string line_athlete;
     getline(athlete_file, line_athlete);
     while (getline(athlete_file, line_athlete))
@@ -277,7 +277,7 @@ void Olympiad::LoadFromFile(const string file_name /*= "data/olympiad.txt"*/)
         athleteID[id] = &this->athletes.back();
     }
 
-    ifstream competition_file("data/Competition.csv");
+    ifstream competition_file(fold_name + "Competition.csv");
     string line_competition;
     getline(competition_file, line_competition);
     while (getline(competition_file, line_competition))
@@ -290,7 +290,7 @@ void Olympiad::LoadFromFile(const string file_name /*= "data/olympiad.txt"*/)
     }
     competition_file.close();
 
-    ifstream result_file("data/Result.csv");
+    ifstream result_file(fold_name + "Result.csv");
     string line_result;
     getline(result_file, line_result);
     while (getline(result_file, line_result))
