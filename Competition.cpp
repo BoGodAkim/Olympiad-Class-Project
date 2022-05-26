@@ -126,6 +126,7 @@ bool Competition::CheckResult(const float *result)
         }
     }
     return true;
+
 }
 
 bool Competition::IsFinished()
