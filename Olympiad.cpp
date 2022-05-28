@@ -185,7 +185,7 @@ void Olympiad::SaveToFile(const string fold_name /*= "data/"*/)
     map<Country *, int> countryID;
     map<Competition *, int> competitionID;
     map<Athlete *, int> athleteID;
-    auto it = this->countries.size();
+    
     int id = 0;
     for (auto it = this->countries.begin(); it != this->countries.end(); it++)
     {
